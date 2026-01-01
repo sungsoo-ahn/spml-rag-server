@@ -1,0 +1,8 @@
+ok now you need to do the job here: /n/home12/cfpark00/datadir/llm-research-abilities/docs/closing_tasks.md
+
+  but very very unfortunately, you got "amnesia" all stuff you did today is only given to you as a compressed version (which you see
+  in the summary). but this is actually all stuff you **just** did today! so in the logs you gotta clearly write allof this and update
+  evrything properly.
+
+  Since you got amenesia, feel free to navigate the current state of files and everything so that you do the closing tasks
+  accurately.!!!! 
