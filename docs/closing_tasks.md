@@ -11,4 +11,12 @@ When done for the day:
 
 3. If you made file or folder structure changes, update `docs/structure.txt`. Even if you didn't try to verify *rough* consistency.
 
-4. Update (or write if non-existing) `docs/research_context.md`, a document with the goal and scope of the research and main findings so far, and current state. At this step, feel free to ask the user if things are unclear where we are or where we are heading. DO NOT hallucinate research directions or goals the user did not mention.
+4. For RAG server work:
+   - Document any changes to the RAG server architecture or configuration
+   - Note any new document types added or extractors created
+   - Update statistics if documents were indexed (total count, chunks, etc.)
+
+5. For research/experimental work:
+   - Update (or write if non-existing) `docs/research_context.md` with research goals, scope, findings, and current state
+   - Ask the user if unclear about research direction
+   - DO NOT hallucinate research directions or goals the user did not mention

@@ -1,61 +1,63 @@
-# Repository Usage Guide
+# Repository Usage Guide - RAG Server Development
+
+**Note**: This repository started as a research project template and has been adapted for the SPML RAG server. The core development principles below apply to both RAG server development and any future research extensions. RAG-specific guidance is in dedicated sections.
 
 ## Core Development Principles
 
-### 1. Research Integrity First - Fail Fast Philosophy
-- **This is a research repo**: Hidden invisible fallbacks are *criminal* to research integrity
+### 1. Reliability First - Fail Fast Philosophy
+- **This is a production service**: Hidden invisible fallbacks create unreliable behavior
 - **Failing is fine**: NEVER make code do something secretly without being obvious
-- **Stay explicit**: Implicit behavior corrupts experiments and wastes time
+- **Stay explicit**: Implicit behavior corrupts document retrieval and wastes user time
 - **No silent failures**: Crash immediately on missing configs or invalid states
 - **No fallbacks**: Required parameters must be explicitly provided
-- **Loud failures**: Better to crash in 1 second than run for 10 hours with wrong behavior
-- **Why**: Silent failures waste compute hours and corrupt research results
+- **Loud failures**: Better to crash immediately than silently return wrong results
+- **Why**: Silent failures in RAG systems lead to incorrect document retrieval and user confusion
 
 ### 2. Implementation vs Orchestration
-- **Implementation (HOW)**: Lives in `src/` modules - reusable functions and core logic
-- **Orchestration (WHAT/WHEN)**: Lives in `src/scripts/` - experiment flow and coordination at Python level
-- **Bash scripts in `/scripts/`**: Minimal wrappers that just call Python scripts, e.g., `uv run python src/scripts/train.py configs/train/default.yaml`
+- **Implementation (HOW)**: Lives in `src/rag/` modules - RAG server core logic (extractors, embeddings, retrieval)
+- **Orchestration (WHAT/WHEN)**: Lives in `src/rag/cli.py` and `src/rag/server.py` - MCP server and CLI entry points
+- **Utility scripts in `/scripts/rag/`**: Helper scripts for indexing and management, e.g., `uv run python scripts/rag/index_new_documents.py`
 
 ### 3. Abstraction Guidelines
 - **Just the right amount**: Do not over-abstract, aim for clarity over cleverness
 - **Consult before major changes**: When introducing new structures/abstractions, ask first
 - **Watch for spaghetti**: If code is getting tangled, stop and discuss restructuring
 
-### 4. Script Legibility
-- Scripts should read like a story - each line is a meaningful step
-- Everything happens in `main()` function
-- Clear, sequential flow from config loading to execution
+### 4. Code Legibility
+- Code should read clearly - each section has a clear purpose
+- Maintain clear separation between concerns (extraction, embedding, retrieval)
+- Document complex logic and MCP protocol interactions
 
-## Script Organization
+## RAG Server Organization
 
 ### Required Config Structure
-- All configs **MUST** have `output_dir` field - this is non-negotiable
-- All scripts should *only* modify the `output_dir` specified in config (except system-level cache/temp files)
+- All configs **MUST** have `chroma_db_path` and `documents_path` fields
+- Configs are in `configs/rag/`:
+  - `default.yaml` - Local development setup
+  - `dropbox_shared.yaml` - Team shared setup via Dropbox
 
-### Recommended Script Interface
-```bash
-python src/scripts/<script_name>.py configs/<config_file>.yaml --overwrite --debug
+### RAG Server Components
 ```
-- **Only two runtime flags are recommended:**
-  - `--overwrite`: Whether to overwrite existing `output_dir`
-  - `--debug`: Debug mode for temporary testing
-- Everything else should be in the config file
+src/rag/
+├── server.py              # MCP server implementation
+├── cli.py                 # Command-line interface
+├── config.py              # Configuration loading
+├── vector_store.py        # ChromaDB wrapper
+├── retriever.py           # Retrieval logic
+├── embeddings.py          # OpenAI embeddings
+├── chunker.py             # Document chunking
+├── document_processor.py  # Document extraction coordination
+└── extractors/            # File type extractors
+    ├── base.py
+    ├── pdf_extractor.py
+    ├── docx_extractor.py
+    └── ...
+```
 
-### Bash Scripts
-- All .sh scripts must be in `scripts/`
-- **It is advised to organize with subfolders** based on your project's needs
-- Example subfolders (these are just examples - use what makes sense for your project):
-  - `scripts/data_generation/`
-  - `scripts/training/`
-  - `scripts/evaluation/`
-- All .sh scripts should be as minimal as possible, mostly they simply keep track of what .py scripts should be ran to recreate the experiment
-- **IMPORTANT: Always pass through arguments using `"$@"`** to allow flags like `--overwrite` and `--debug` to be passed from bash to Python
-- Example:
-  ```bash
-  #!/bin/bash
-  uv run python src/scripts/train.py configs/train/default.yaml "$@"
-  ```
-  This allows you to run: `bash scripts/train.sh --overwrite --debug`
+### Utility Scripts
+- All utility scripts are in `scripts/rag/`
+- Example: `scripts/rag/index_new_documents.py` - Smart incremental indexing
+- Scripts use the RAG config system via environment variables
 
 ### Config Files
 - All configs must be in `configs/`

@@ -2,6 +2,19 @@
 
 This document outlines the project structure and development conventions.
 
+**Project Type**: MCP RAG Server for SPML research group
+
+This repository contains:
+1. **Primary**: RAG server (`src/rag/`) for document retrieval via Claude Desktop
+2. **Secondary**: Research project infrastructure that can be used for experiments
+
+For RAG-specific documentation, see:
+- `docs/ARCHITECTURE.md` - System architecture and design
+- `docs/USAGE.md` - Usage guide (CLI and Claude Desktop)
+- `docs/DEVELOPMENT.md` - Development and contributing guide
+- `docs/TEAM_SETUP.md` - Team member setup guide
+- `QUICK_REFERENCE.md` - Common RAG server commands
+
 ## Project Structure
 
 ### `/scripts/` - Execution Scripts

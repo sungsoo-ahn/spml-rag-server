@@ -1,4 +1,6 @@
 Read:
-- CLAUDE.md
-- docs/repo_usage.md
-- docs/research_context.md
+- CLAUDE.md - Development guidelines
+- README.md - RAG server overview
+- docs/ARCHITECTURE.md - System architecture (for technical questions)
+- docs/USAGE.md - Usage guide (for usage questions)
+- docs/TEAM_SETUP.md - Team setup guide (if helping with setup)

@@ -21,7 +21,9 @@
 
 ### 4. **Created Documentation**
 - `docs/TEAM_SETUP.md` - Complete setup guide for team members
-- `README_RAG.md` - Project overview and usage guide
+- `docs/ARCHITECTURE.md` - System architecture and design
+- `docs/USAGE.md` - Usage guide for CLI and Claude Desktop
+- `docs/DEVELOPMENT.md` - Development and contributing guide
 - `UPDATE_YOUR_CONFIG.md` - Instructions for you to switch to Dropbox
 - Status: ✅ Ready to share
 
@@ -55,8 +57,13 @@ src/rag/                           ✨ NEW - entire RAG server
     ├── text_extractor.py
     └── markdown_extractor.py
 
-README_RAG.md                      ✨ NEW - main documentation
-UPDATE_YOUR_CONFIG.md              ✨ NEW - your next steps
+docs/
+├── ARCHITECTURE.md                ✨ NEW - system architecture
+├── USAGE.md                       ✨ NEW - usage guide
+├── DEVELOPMENT.md                 ✨ NEW - development guide
+└── TEAM_SETUP.md                  ✨ NEW - team setup
+
+UPDATE_YOUR_CONFIG.md              ✨ NEW - admin next steps
 DEPLOYMENT_SUMMARY.md             ✨ NEW - this file
 ```
 

@@ -88,9 +88,12 @@ uv run python -m src.rag.cli clear
 - Shared ChromaDB: `~/Dropbox/SPML/data/spml-rag-server/chroma-db/`
 
 ### Documentation
+- Overview: `README.md`
+- Architecture: `docs/ARCHITECTURE.md`
+- Usage guide: `docs/USAGE.md`
+- Development: `docs/DEVELOPMENT.md`
 - Team setup: `docs/TEAM_SETUP.md`
-- Main README: `README_RAG.md`
-- This file: `QUICK_REFERENCE.md`
+- Quick reference: `QUICK_REFERENCE.md`
 
 ## Troubleshooting
 

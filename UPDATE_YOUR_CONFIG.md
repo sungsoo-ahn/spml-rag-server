@@ -87,7 +87,9 @@ git status
 # Add the new files
 git add configs/rag/dropbox_shared.yaml
 git add docs/TEAM_SETUP.md
-git add README_RAG.md
+git add docs/ARCHITECTURE.md
+git add docs/USAGE.md
+git add docs/DEVELOPMENT.md
 git add .env.example
 git add src/rag/config.py
 git add scripts/rag/index_new_documents.py
