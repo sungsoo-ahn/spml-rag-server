@@ -38,7 +38,7 @@ RAG_CONFIG_PATH=configs/rag/dropbox_shared.yaml
 ### Verify Setup
 ```bash
 # Check Dropbox sync
-ls ~/Dropbox/SPML/data/rag-chroma-db/chroma.sqlite3
+ls ~/Dropbox/SPML/data/spml-rag-server/chroma-db/chroma.sqlite3
 
 # Test CLI
 uv run python -m src.rag.cli stats
@@ -85,7 +85,7 @@ uv run python -m src.rag.cli clear
 ### Data
 - Source docs: `data/rag/documents/`
 - Local ChromaDB: `data/rag/chroma_db/`
-- Shared ChromaDB: `~/Dropbox/SPML/data/rag-chroma-db/`
+- Shared ChromaDB: `~/Dropbox/SPML/data/spml-rag-server/chroma-db/`
 
 ### Documentation
 - Team setup: `docs/TEAM_SETUP.md`
@@ -97,7 +97,7 @@ uv run python -m src.rag.cli clear
 ### ChromaDB not found
 ```bash
 # Check Dropbox sync
-ls ~/Dropbox/SPML/data/rag-chroma-db/
+ls ~/Dropbox/SPML/data/spml-rag-server/chroma-db/
 
 # Verify environment variable
 echo $DROPBOX_PATH

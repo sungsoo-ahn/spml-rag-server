@@ -4,7 +4,7 @@ This guide will help you set up the RAG (Retrieval-Augmented Generation) server 
 
 ## Prerequisites
 
-1. **Dropbox Account** with access to the `SPML/data/rag-chroma-db` folder
+1. **Dropbox Account** with access to the `SPML/data/spml-rag-server/chroma-db` folder
 2. **Dropbox Desktop App** installed and syncing
 3. **Claude Desktop** installed
 4. **Python 3.10+** installed
@@ -58,13 +58,15 @@ Make sure the ChromaDB is synced to your machine:
 
 ```bash
 # macOS/Linux:
-ls -lh ~/Dropbox/SPML/data/rag-chroma-db/
+ls -lh ~/Dropbox/SPML/data/spml-rag-server/chroma-db/
 
 # Windows:
-dir %USERPROFILE%\Dropbox\SPML\data\rag-chroma-db\
+dir %USERPROFILE%\Dropbox\SPML\data\spml-rag-server\chroma-db\
 ```
 
-You should see a `chroma.sqlite3` file (~99MB) and a folder with a UUID name.
+You should see two directories:
+- `chroma-db/` - Vector database (~195MB)
+- `documents/` - Source documents (~4.4GB)
 
 ### Step 5: Test the RAG Server
 

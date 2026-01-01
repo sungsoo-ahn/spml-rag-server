@@ -7,15 +7,17 @@ A Model Context Protocol (MCP) server that provides RAG (Retrieval-Augmented Gen
 This MCP server indexes and retrieves information from a shared collection of research documents (papers, grants, presentations, etc.) and makes them searchable through Claude Desktop conversations.
 
 ### Current Collection
-- **926 documents** indexed
+- **926 documents** indexed (~4.4GB)
 - **12,550 text chunks** (512 tokens each)
 - **~195MB** ChromaDB vector database
 - Supports: PDF, DOCX, PPTX, TXT, Markdown
+- **Shared via Dropbox**: Both documents and database accessible to all team members
 
 ### Features
 - 🔍 **Semantic search** across all indexed documents
 - 📚 **Source citation** with file paths and relevance scores
 - 🔄 **Shared access** via Dropbox for team collaboration
+- 📁 **Unified structure** - documents and database in one Dropbox folder
 - 🚀 **Fast retrieval** using ChromaDB vector store
 - 🤖 **Claude Desktop integration** via MCP protocol
 
@@ -38,8 +40,8 @@ uv sync
 cp .env.example .env
 # Edit .env with your OPENAI_API_KEY and DROPBOX_PATH
 
-# 3. Verify Dropbox sync
-ls ~/Dropbox/SPML/data/rag-chroma-db/
+# 3. Verify Dropbox sync (both chroma-db and documents)
+ls ~/Dropbox/SPML/data/spml-rag-server/
 
 # 4. Configure Claude Desktop (see TEAM_SETUP.md)
 
@@ -82,15 +84,26 @@ uv run python -m src.rag.cli search "your query"
 └─────────────────┘    │
                        │
                 ┌──────▼──────┐
-                │  ChromaDB   │
-                │  (Dropbox)  │ ← Shared across team
-                └─────────────┘
+                │  Dropbox    │ ← Shared across team
+                │   Folder    │
+                └──────┬──────┘
+                       │
+                ┌──────┴──────┬─────────────┐
+                │             │             │
+        ┌───────▼────────┐ ┌─▼──────────┐  │
+        │   ChromaDB     │ │ Documents  │  │
+        │ (chroma-db/)   │ │ (~4.4GB)   │  │
+        └────────────────┘ └────────────┘  │
+                                           │
+                                     spml-rag-server/
 ```
 
 ### Why This Architecture?
 
 - **Local MCP servers**: Each user runs their own MCP server for Claude Desktop integration
-- **Shared ChromaDB**: Vector database synced via Dropbox for team collaboration
+- **Unified Dropbox folder**: Both vector database and source documents in one location
+  - `SPML/data/spml-rag-server/chroma-db/` - Vector database (~195MB)
+  - `SPML/data/spml-rag-server/documents/` - Source documents (~4.4GB)
 - **Read-mostly workload**: Perfect for Dropbox sync (occasional writes, frequent reads)
 - **No infrastructure**: No servers to maintain, no authentication to manage
 

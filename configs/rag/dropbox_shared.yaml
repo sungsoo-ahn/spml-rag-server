@@ -12,14 +12,19 @@ chunk_overlap: 50     # overlap between chunks
 # ChromaDB settings - SHARED VIA DROPBOX
 # NOTE: Update this path to match YOUR Dropbox location
 # Example paths:
-#   macOS: /Users/YOUR_USERNAME/Dropbox/SPML/data/rag-chroma-db
-#   Windows: C:/Users/YOUR_USERNAME/Dropbox/SPML/data/rag-chroma-db
-#   Linux: /home/YOUR_USERNAME/Dropbox/SPML/data/rag-chroma-db
-chroma_db_path: "${DROPBOX_PATH}/SPML/data/rag-chroma-db"
+#   macOS: /Users/YOUR_USERNAME/Dropbox/SPML/data/spml-rag-server/chroma-db
+#   Windows: C:/Users/YOUR_USERNAME/Dropbox/SPML/data/spml-rag-server/chroma-db
+#   Linux: /home/YOUR_USERNAME/Dropbox/SPML/data/spml-rag-server/chroma-db
+chroma_db_path: "${DROPBOX_PATH}/SPML/data/spml-rag-server/chroma-db"
 collection_name: "documents"
 
-# Document settings
-documents_path: "data/rag/documents"
+# Document settings - SHARED VIA DROPBOX
+# All team members can access the same document collection
+# Example paths:
+#   macOS: /Users/YOUR_USERNAME/Dropbox/SPML/data/spml-rag-server/documents
+#   Windows: C:/Users/YOUR_USERNAME/Dropbox/SPML/data/spml-rag-server/documents
+#   Linux: /home/YOUR_USERNAME/Dropbox/SPML/data/spml-rag-server/documents
+documents_path: "${DROPBOX_PATH}/SPML/data/spml-rag-server/documents"
 supported_extensions:
   - ".pdf"
   - ".docx"

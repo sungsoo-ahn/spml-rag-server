@@ -14,7 +14,7 @@
 - Status: ✅ Complete
 
 ### 3. **Set Up Dropbox Sharing**
-- Copied ChromaDB (195MB) to Dropbox: `~/Sungsahn0215 Dropbox/SPML/data/rag-chroma-db/`
+- Copied ChromaDB (195MB) to Dropbox: `~/Sungsahn0215 Dropbox/SPML/data/spml-rag-server/chroma-db/`
 - Created shared config: `configs/rag/dropbox_shared.yaml`
 - Updated config loader to support environment variables
 - Status: ✅ Ready for team use
@@ -84,7 +84,7 @@ pyproject.toml                    (already had RAG dependencies)
    ```
 
 3. **Share with Team**
-   - Share Dropbox folder: `SPML/data/rag-chroma-db`
+   - Share Dropbox folder: `SPML/data/spml-rag-server/chroma-db`
    - Share GitHub repo URL
    - Point them to `docs/TEAM_SETUP.md`
 
@@ -103,7 +103,7 @@ Collection: documents
 Total Chunks: 12,550
 Unique Documents: 926
 Size: ~195MB
-Location: ~/Sungsahn0215 Dropbox/SPML/data/rag-chroma-db/
+Location: ~/Sungsahn0215 Dropbox/SPML/data/spml-rag-server/chroma-db/
 ```
 
 ### Indexed Document Types
@@ -156,7 +156,7 @@ Dropbox provides:
 For additional backup:
 ```bash
 # Create a backup of ChromaDB
-cp -R ~/Sungsahn0215\ Dropbox/SPML/data/rag-chroma-db ~/backups/rag-chroma-db-$(date +%Y%m%d)
+cp -R ~/Sungsahn0215\ Dropbox/SPML/data/spml-rag-server/chroma-db ~/backups/rag-chroma-db-$(date +%Y%m%d)
 ```
 
 ## 🔒 Security Checklist
@@ -176,7 +176,7 @@ Hi team,
 The RAG server for searching our research documents is now ready!
 
 Setup:
-1. Get access to the shared Dropbox folder: SPML/data/rag-chroma-db
+1. Get access to the shared Dropbox folder: SPML/data/spml-rag-server/chroma-db
 2. Clone the repo: [YOUR_GITHUB_URL]
 3. Follow setup: docs/TEAM_SETUP.md
 

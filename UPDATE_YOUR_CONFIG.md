@@ -4,7 +4,7 @@ This guide is for **you** (the admin) to switch your local setup to use the Drop
 
 ## What Changed
 
-- ✅ ChromaDB copied to Dropbox: `~/Sungsahn0215 Dropbox/SPML/data/rag-chroma-db/`
+- ✅ ChromaDB copied to Dropbox: `~/Sungsahn0215 Dropbox/SPML/data/spml-rag-server/chroma-db/`
 - ✅ New config created: `configs/rag/dropbox_shared.yaml`
 - ✅ Config loader updated to support environment variables
 - ✅ Team documentation created in `docs/TEAM_SETUP.md`
@@ -65,7 +65,7 @@ Expected output:
 ```
 Total Chunks: 12550
 Unique Documents: 926
-Persist Directory: /Users/sungsoo/Sungsahn0215 Dropbox/SPML/data/rag-chroma-db
+Persist Directory: /Users/sungsoo/Sungsahn0215 Dropbox/SPML/data/spml-rag-server/chroma-db
 ```
 
 ## Restart Claude Desktop
@@ -107,7 +107,7 @@ git push origin main  # or your branch name
 
 ### 2. Share with Team
 
-1. Share the Dropbox folder `SPML/data/rag-chroma-db` with team members
+1. Share the Dropbox folder `SPML/data/spml-rag-server/chroma-db` with team members
 2. Send them the GitHub repository URL
 3. Point them to `docs/TEAM_SETUP.md`
 

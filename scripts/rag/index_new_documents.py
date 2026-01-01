@@ -23,8 +23,9 @@ def main():
     """Index new documents only."""
     # Check for --yes flag
     skip_confirm = "--yes" in sys.argv or "-y" in sys.argv
-    # Load config
-    config_path = "configs/rag/default.yaml"
+
+    # Load config (support environment variable override)
+    config_path = os.getenv("RAG_CONFIG_PATH", "configs/rag/default.yaml")
     console.print(f"[cyan]Loading config from {config_path}...[/cyan]")
     cfg = load_config(config_path)
 
