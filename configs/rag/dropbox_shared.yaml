@@ -1,0 +1,39 @@
+# RAG Server Configuration - Dropbox Shared Version
+# This config uses a shared Dropbox directory for the ChromaDB
+# All team members should point to their own Dropbox sync location
+
+# Embedding settings
+embedding_model: "text-embedding-3-small"
+
+# Chunking settings
+chunk_size: 512       # tokens per chunk
+chunk_overlap: 50     # overlap between chunks
+
+# ChromaDB settings - SHARED VIA DROPBOX
+# NOTE: Update this path to match YOUR Dropbox location
+# Example paths:
+#   macOS: /Users/YOUR_USERNAME/Dropbox/SPML/data/rag-chroma-db
+#   Windows: C:/Users/YOUR_USERNAME/Dropbox/SPML/data/rag-chroma-db
+#   Linux: /home/YOUR_USERNAME/Dropbox/SPML/data/rag-chroma-db
+chroma_db_path: "${DROPBOX_PATH}/SPML/data/rag-chroma-db"
+collection_name: "documents"
+
+# Document settings
+documents_path: "data/rag/documents"
+supported_extensions:
+  - ".pdf"
+  - ".docx"
+  - ".doc"
+  - ".pptx"
+  - ".ppt"
+  - ".txt"
+  - ".md"
+  - ".markdown"
+
+# Retrieval settings
+default_top_k: 5
+similarity_threshold: 0.3
+
+# Server settings
+server_name: "rag-server"
+log_level: "INFO"
