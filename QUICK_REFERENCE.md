@@ -4,7 +4,7 @@
 
 ### Index New Documents
 ```bash
-cd /Users/sungsoo/Code/mcp-sungsoo
+cd /Users/sungsoo/Code/spml-rag-server
 export DROPBOX_PATH="/Users/sungsoo/Sungsahn0215 Dropbox"
 export RAG_CONFIG_PATH=configs/rag/dropbox_shared.yaml
 

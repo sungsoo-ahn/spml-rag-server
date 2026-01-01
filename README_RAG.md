@@ -31,7 +31,7 @@ Quick version:
 ```bash
 # 1. Clone and install
 git clone <REPOSITORY_URL>
-cd mcp-sungsoo
+cd spml-rag-server
 uv sync
 
 # 2. Configure environment
@@ -183,7 +183,7 @@ export RAG_CONFIG_PATH=configs/rag/dropbox_shared.yaml
 ## Project Structure
 
 ```
-mcp-sungsoo/
+spml-rag-server/
 ├── src/rag/                    # RAG server source code
 │   ├── server.py              # MCP server implementation
 │   ├── cli.py                 # Command-line interface

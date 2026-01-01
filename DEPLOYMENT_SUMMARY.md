@@ -77,7 +77,7 @@ pyproject.toml                    (already had RAG dependencies)
 
 2. **Push to GitHub**
    ```bash
-   cd /Users/sungsoo/Code/mcp-sungsoo
+   cd /Users/sungsoo/Code/spml-rag-server
    git add .
    git commit -m "Add Dropbox-shared RAG server setup"
    git push origin main

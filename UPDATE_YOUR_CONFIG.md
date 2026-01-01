@@ -24,7 +24,7 @@ Edit your Claude Desktop config file:
       "args": [
         "run",
         "--directory",
-        "/Users/sungsoo/Code/mcp-sungsoo",
+        "/Users/sungsoo/Code/spml-rag-server",
         "python",
         "-m",
         "src.rag.server"
@@ -45,7 +45,7 @@ Edit your Claude Desktop config file:
 
 ## Update Your .env File
 
-Add to `/Users/sungsoo/Code/mcp-sungsoo/.env`:
+Add to `/Users/sungsoo/Code/spml-rag-server/.env`:
 
 ```bash
 DROPBOX_PATH=/Users/sungsoo/Sungsahn0215 Dropbox
@@ -55,7 +55,7 @@ DROPBOX_PATH=/Users/sungsoo/Sungsahn0215 Dropbox
 
 ```bash
 # Test from CLI (should show 926 documents)
-cd /Users/sungsoo/Code/mcp-sungsoo
+cd /Users/sungsoo/Code/spml-rag-server
 export DROPBOX_PATH="/Users/sungsoo/Sungsahn0215 Dropbox"
 export RAG_CONFIG_PATH=configs/rag/dropbox_shared.yaml
 uv run python -m src.rag.cli stats
@@ -79,7 +79,7 @@ Persist Directory: /Users/sungsoo/Sungsahn0215 Dropbox/SPML/data/rag-chroma-db
 ### 1. Push to GitHub
 
 ```bash
-cd /Users/sungsoo/Code/mcp-sungsoo
+cd /Users/sungsoo/Code/spml-rag-server
 
 # Check what will be committed
 git status
@@ -139,13 +139,13 @@ This will:
 ### Local ChromaDB
 
 Your old local ChromaDB is still at:
-- `/Users/sungsoo/Code/mcp-sungsoo/data/rag/chroma_db/`
+- `/Users/sungsoo/Code/spml-rag-server/data/rag/chroma_db/`
 
 You can delete it once you've verified the Dropbox setup works:
 
 ```bash
 # AFTER verifying Dropbox setup works
-rm -rf /Users/sungsoo/Code/mcp-sungsoo/data/rag/chroma_db/
+rm -rf /Users/sungsoo/Code/spml-rag-server/data/rag/chroma_db/
 ```
 
 ---

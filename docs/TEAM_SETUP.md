@@ -17,7 +17,7 @@ This guide will help you set up the RAG (Retrieval-Augmented Generation) server 
 
 ```bash
 git clone <REPOSITORY_URL>
-cd mcp-sungsoo
+cd spml-rag-server
 ```
 
 ### Step 2: Install Dependencies
@@ -101,7 +101,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
       "args": [
         "run",
         "--directory",
-        "/PATH/TO/mcp-sungsoo",
+        "/PATH/TO/spml-rag-server",
         "python",
         "-m",
         "src.rag.server"
@@ -128,7 +128,7 @@ Edit `%APPDATA%\Claude\claude_desktop_config.json`:
       "args": [
         "run",
         "--directory",
-        "C:\\PATH\\TO\\mcp-sungsoo",
+        "C:\\PATH\\TO\\spml-rag-server",
         "python",
         "-m",
         "src.rag.server"
@@ -145,7 +145,7 @@ Edit `%APPDATA%\Claude\claude_desktop_config.json`:
 
 **Important**:
 - Replace `YOUR_USERNAME` with your actual username
-- Replace `/PATH/TO/mcp-sungsoo` with the full path where you cloned the repo
+- Replace `/PATH/TO/spml-rag-server` with the full path where you cloned the repo
 - Replace `YOUR_OPENAI_API_KEY` with your actual API key
 
 #### Finding the `uv` Path
@@ -269,7 +269,7 @@ uv run python -m src.rag.cli index data/rag/documents --recursive
 ## Repository Structure
 
 ```
-mcp-sungsoo/
+spml-rag-server/
 ├── configs/rag/
 │   ├── default.yaml           # Local development config
 │   └── dropbox_shared.yaml    # Shared Dropbox config
